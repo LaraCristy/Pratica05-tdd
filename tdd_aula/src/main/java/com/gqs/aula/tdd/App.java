@@ -1,4 +1,4 @@
-package com.ggs.aula.tdd;
+package com.gqs.aula.tdd;
 
 /**
  * Hello world!
