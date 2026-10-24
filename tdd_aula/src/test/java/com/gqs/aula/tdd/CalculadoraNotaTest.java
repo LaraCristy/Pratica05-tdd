@@ -10,11 +10,20 @@ public class CalculadoraNotaTest {
     double resultado = calc.calcularNotaFinal(20, 20, 30);
     assertEquals(70, resultado);
     }
-
-@Test
-void deveSomarOutrasNotas() {
+    @Test
+    void deveSomarOutrasNotas() {
     CalculadoraNota calc = new CalculadoraNota();
     double resultado = calc.calcularNotaFinal(10, 15, 25);
     assertEquals(50, resultado);
+    }
+    @Test
+    void deveAprovarComNota70() {
+    CalculadoraNota calc = new CalculadoraNota();
+    assertTrue(calc.estaAprovadoPorNota(70));
+}
+    @Test
+    void deveReprovarComNota69() {
+    CalculadoraNota calc = new CalculadoraNota();
+    assertFalse(calc.estaAprovadoPorNota(69));
     }
 }
