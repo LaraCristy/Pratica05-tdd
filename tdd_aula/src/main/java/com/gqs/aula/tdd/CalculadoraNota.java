@@ -33,6 +33,14 @@ public class CalculadoraNota {
         }
     }
     public String situacao(double notaFinal, double frequencia) {
-        return "";
+        if (estaAprovadoPorNota(notaFinal) && frequencia >= 75) {
+             return "APROVADO";
     }
+
+    return "REPROVADO";
+}
+
+public boolean podeFazerAI(double a1, double a2, double a3, double frequencia) {
+    return false;
+}
 }

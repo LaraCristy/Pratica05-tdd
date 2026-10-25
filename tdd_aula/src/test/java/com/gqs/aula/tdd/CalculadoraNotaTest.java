@@ -68,4 +68,31 @@ public class CalculadoraNotaTest {
     CalculadoraNota calc = new CalculadoraNota();
     assertEquals("APROVADO", calc.situacao(70, 75));
     }
+    @Test
+    void devePermitirAIComSomaA2A3Suficiente() {
+    CalculadoraNota calc = new CalculadoraNota();
+    assertTrue(calc.podeFazerAI(10, 20, 30, 80));
+    }
+    @Test
+    void devePermitirAIComSomaExatamente40() {
+    CalculadoraNota calc = new CalculadoraNota();
+    assertTrue(calc.podeFazerAI(10, 5, 30, 80));
+    }
+    @Test
+    void deveNegarAIParaAlunoAprovado() {
+    CalculadoraNota calc = new CalculadoraNota();
+    assertFalse(calc.podeFazerAI(25, 25, 30, 80));
+    }
+
+    @Test
+    void deveNegarAIPorFrequenciaBaixa() {
+    CalculadoraNota calc = new CalculadoraNota();
+    assertFalse(calc.podeFazerAI(10, 20, 30, 70));
+    }   
+
+    @Test
+    void deveNegarAISemSomaMinima() {
+    CalculadoraNota calc = new CalculadoraNota();
+    assertFalse(calc.podeFazerAI(5, 5, 30, 80));
+    }
 }
