@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
@@ -38,5 +39,11 @@ public class CalculadoraNotaTest {
     void deveReprovarComNota69() {
         CalculadoraNota calc = new CalculadoraNota();
         assertFalse(calc.estaAprovadoPorNota(NOTA_REPROVACAO));
+    }
+    @Test
+    void deveRejeitarA1MaiorQue30() {
+    CalculadoraNota calc = new CalculadoraNota();
+    assertThrows(IllegalArgumentException.class,
+    () -> calc.calcularNotaFinal(35, 20, 30));
     }
 }
