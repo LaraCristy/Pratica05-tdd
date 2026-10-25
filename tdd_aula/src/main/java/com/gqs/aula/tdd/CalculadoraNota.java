@@ -51,14 +51,20 @@ public boolean podeFazerAI(double a1, double a2, double a3, double frequencia) {
 
     return reprovadoPorNota && frequenciaSuficiente && somaSuficiente;
 }
-   public double aplicarAI(double a1, double a2, double a3, double notaAI) {
-    if (notaAI < 0 || notaAI > 30) {
+public double aplicarAI(double a1, double a2, double a3, double notaAI) {
+    if (notaAI < 0 || notaAI > NOTA_MAXIMA_A1_A2) {
         throw new IllegalArgumentException("A nota da AI deve estar entre 0 e 30");
     }
 
-    if (a1 <= a2 && notaAI > a1) {
+    double menorNota = Math.min(a1, a2);
+
+    if (notaAI <= menorNota) {
+        return calcularNotaFinal(a1, a2, a3);
+    }
+
+    if (a1 <= a2) {
         a1 = notaAI;
-    } else if (a2 < a1 && notaAI > a2) {
+    } else {
         a2 = notaAI;
     }
 
