@@ -51,7 +51,17 @@ public boolean podeFazerAI(double a1, double a2, double a3, double frequencia) {
 
     return reprovadoPorNota && frequenciaSuficiente && somaSuficiente;
 }
-    public double aplicarAI(double a1, double a2, double a3, double notaAI) {
-    return 0;
+   public double aplicarAI(double a1, double a2, double a3, double notaAI) {
+    if (notaAI < 0 || notaAI > 30) {
+        throw new IllegalArgumentException("A nota da AI deve estar entre 0 e 30");
+    }
+
+    if (a1 <= a2 && notaAI > a1) {
+        a1 = notaAI;
+    } else if (a2 < a1 && notaAI > a2) {
+        a2 = notaAI;
+    }
+
+    return calcularNotaFinal(a1, a2, a3);
 }
 }
