@@ -16,6 +16,15 @@ public class CalculadoraNota {
     /** Nota máxima para A3. */
     public static final double NOTA_MAXIMA_A3 = 40;
 
+    /** Situação de aprovação. */
+public static final String SITUACAO_APROVADO = "APROVADO";
+
+/** Reprovação por frequência insuficiente. */
+public static final String SITUACAO_REPROVADO_FALTA = "REPROVADO POR FALTA";
+
+/** Reprovação por nota insuficiente. */
+public static final String SITUACAO_REPROVADO_NOTA = "REPROVADO POR NOTA";
+
     public double calcularNotaFinal(double a1, double a2, double a3) {
         validarNota(a1, NOTA_MAXIMA_A1_A2, "A1");
         validarNota(a2, NOTA_MAXIMA_A1_A2, "A2");
@@ -34,16 +43,16 @@ public class CalculadoraNota {
                 nomeAvaliacao + " deve estar entre 0 e " + notaMaxima);
         }
     }
-    public String situacao(double notaFinal, double frequencia) {
-      if (frequencia < FREQUENCIA_MINIMA) {
-        return "REPROVADO POR FALTA";
+   public String situacao(double notaFinal, double frequencia) {
+    if (frequencia < FREQUENCIA_MINIMA) {
+        return SITUACAO_REPROVADO_FALTA;
     }
 
     if (!estaAprovadoPorNota(notaFinal)) {
-        return "REPROVADO POR NOTA";
+        return SITUACAO_REPROVADO_NOTA;
     }
 
-    return "APROVADO";
+    return SITUACAO_APROVADO;
 }
 
 public boolean podeFazerAI(double a1, double a2, double a3, double frequencia) {
