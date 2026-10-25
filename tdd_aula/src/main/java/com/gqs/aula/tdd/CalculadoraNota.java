@@ -1,10 +1,14 @@
 package com.gqs.aula.tdd;
 
+/**
+ * Calculadora de notas dos alunos.
+ */
 public class CalculadoraNota {
-    
-    public double calcularNotaFinal(double a1, double a2, double a3) {
-        return a1 + a2 + a3;
+
+    public double calcularNotaFinal(double nota1, double nota2, double nota3) {
+        return nota1 + nota2 + nota3;
     }
+
     public boolean estaAprovadoPorNota(double notaFinal) {
         return notaFinal >= 70;
     }
