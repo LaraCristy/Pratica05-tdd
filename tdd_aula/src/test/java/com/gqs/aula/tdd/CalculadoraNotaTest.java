@@ -124,20 +124,20 @@ public class CalculadoraNotaTest {
     CalculadoraNota calc = new CalculadoraNota();
     assertEquals("REPROVADO POR FALTA", calc.situacao(50, 60));
 }
-@Test
-void deveAprovarComNotaMaiorQue70() {
+    @Test
+    void deveAprovarComNotaMaiorQue70() {
     CalculadoraNota calc = new CalculadoraNota();
     assertTrue(calc.estaAprovadoPorNota(85));
 }
 
-@Test
-void deveReprovarComNotaMuitoBaixa() {
+    @Test
+    void deveReprovarComNotaMuitoBaixa() {
     CalculadoraNota calc = new CalculadoraNota();
     assertFalse(calc.estaAprovadoPorNota(40));
 }
 
-@Test
-void deveAceitarNotasZeradas() {
+    @Test
+    void deveAceitarNotasZeradas() {
     CalculadoraNota calc = new CalculadoraNota();
     assertEquals(0, calc.calcularNotaFinal(0, 0, 0));
 }
