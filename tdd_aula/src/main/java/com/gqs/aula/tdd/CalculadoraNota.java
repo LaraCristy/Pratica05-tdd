@@ -5,6 +5,8 @@ package com.gqs.aula.tdd;
  */
 public class CalculadoraNota {
 
+    public static final double FREQUENCIA_MINIMA = 75;
+   
     /** Nota mínima para aprovação. */
     public static final double NOTA_MINIMA_APROVACAO = 70;
 
@@ -43,8 +45,10 @@ public class CalculadoraNota {
 public boolean podeFazerAI(double a1, double a2, double a3, double frequencia) {
     double notaFinal = calcularNotaFinal(a1, a2, a3);
 
-    return notaFinal < 70
-        && frequencia >= 75
-        && (a1 + a3 >= 40 || a2 + a3 >= 40);
+    boolean reprovadoPorNota = !estaAprovadoPorNota(notaFinal);
+    boolean frequenciaSuficiente = frequencia >= FREQUENCIA_MINIMA;
+    boolean somaSuficiente = (a1 + a3 >= 40 || a2 + a3 >= 40);
+
+    return reprovadoPorNota && frequenciaSuficiente && somaSuficiente;
 }
 }
